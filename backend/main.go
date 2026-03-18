@@ -1,12 +1,22 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"os"
+
+	//cofig folder
+	"backend/config"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	//test
+	fmt.Println("Testing env URL:", os.Getenv("DATABASE_URL"))
+	//conect to the database
+	config.ConnectDatabase()
+
 	//initalize gin router
 	router := gin.Default()
 

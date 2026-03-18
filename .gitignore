@@ -1,0 +1,7 @@
+# Environment variables
+.env
+
+# Go compiled binaries
+*.exe
+*.out
+/leave-management-backend

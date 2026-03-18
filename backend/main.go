@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"os"
 
-	//cofig folder
-	"backend/config"
+	"backend/config" //cofig folder
 
-	//models folder
-	"backend/models"
+	"backend/models" //models folder
+
+	"backend/routes" //routes imports
 
 	"github.com/gin-gonic/gin"
 )
@@ -26,6 +26,9 @@ func main() {
 
 	//initalize gin router
 	router := gin.Default()
+
+	//connect custom routes
+	routes.SetupRoutes(router)
 
 	// simple test route
 	// GET /api/health  to run function

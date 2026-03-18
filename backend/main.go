@@ -8,6 +8,9 @@ import (
 	//cofig folder
 	"backend/config"
 
+	//models folder
+	"backend/models"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,6 +19,10 @@ func main() {
 	fmt.Println("Testing env URL:", os.Getenv("DATABASE_URL"))
 	//conect to the database
 	config.ConnectDatabase()
+
+	// auto migrate the leave model
+	//automatically creates/ updates the leaves model
+	config.DB.AutoMigrate(&models.Leave{})
 
 	//initalize gin router
 	router := gin.Default()

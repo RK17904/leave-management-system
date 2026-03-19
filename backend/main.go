@@ -11,6 +11,7 @@ import (
 
 	"backend/routes" //routes imports
 
+	"github.com/gin-contrib/cors" //CORS library
 	"github.com/gin-gonic/gin"
 )
 
@@ -26,6 +27,9 @@ func main() {
 
 	//initalize gin router
 	router := gin.Default()
+
+	//accept request from frontend
+	router.Use(cors.Default())
 
 	//connect custom routes
 	routes.SetupRoutes(router)

@@ -4,4 +4,4 @@
 # Go compiled binaries
 *.exe
 *.out
-/leave-management-backend
+/backend

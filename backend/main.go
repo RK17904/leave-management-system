@@ -22,8 +22,8 @@ func main() {
 	config.ConnectDatabase()
 
 	// auto migrate the leave model
-	//automatically creates/ updates the leaves model
-	config.DB.AutoMigrate(&models.Leave{})
+	//automatically creates/ updates the leaves model, user
+	config.DB.AutoMigrate(&models.User{}, &models.Leave{})
 
 	//initalize gin router
 	router := gin.Default()

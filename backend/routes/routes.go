@@ -11,6 +11,11 @@ import (
 func SetupRoutes(router *gin.Engine) {
 	api := router.Group("/api")
 	{
+		//register, logins
+		api.POST("/register", controllers.Register)
+		api.POST("/login", controllers.Login)
+
+		//leaves
 		api.POST("/leaves", controllers.CreateLeave)
 		api.GET("/leaves", controllers.GetLeaves)
 	}

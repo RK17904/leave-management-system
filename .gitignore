@@ -4,4 +4,3 @@
 # Go compiled binaries
 *.exe
 *.out
-/backend

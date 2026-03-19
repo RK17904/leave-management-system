@@ -13,9 +13,9 @@ type Leave struct {
 
 	EmployeeName string    `json:"employee_name" gorm:"not null"` //required
 	LeaveType    string    `json:"leave_type" gorm:"not null"`    // stick, annual, casual
-	StartDate    time.Time `jason:"start_date" gorm:"not null"`
-	EndDate      time.Time `jason:"end_date" gorm:"not null"`
-	Reason       string    `jason:"reason"`
-	Status       string    `jason:"status" gorm:"default:'pending'"` //pending, approved, rejected
+	StartDate    time.Time `json:"start_date" gorm:"not null"`
+	EndDate      time.Time `json:"end_date" gorm:"not null"`
+	Reason       string    `json:"reason"`
+	Status       string    `json:"status" gorm:"default:'Pending'"` //pending, approved, rejected
 
 }

@@ -3,20 +3,24 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 //import pages
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/Dashboard'; 
+import AdminDashboard from './pages/AdminDashboard'; 
 import ApplyLeave from './pages/ApplyLeave';
 
-import './App.css'; //import css
+import './App.css';
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/*default loading page */}
         <Route path="/" element={<Login />} />
         
-        {/*after loging pages*/}
+        {/*employee route*/}
         <Route path="/dashboard" element={<Dashboard />} />
+        
+        {/*admin route*/}
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        
         <Route path="/apply-leave" element={<ApplyLeave />} />
       </Routes>
     </Router>

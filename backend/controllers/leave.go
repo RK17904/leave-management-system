@@ -41,3 +41,40 @@ func GetLeaves(c *gin.Context) {
 	//send as JSON response
 	c.JSON(http.StatusOK, gin.H{"data": leaves})
 }
+
+// UpdateLeaveStatus
+// handles PUT requests (approve, reject leave)
+func UpdateLeaveStatus(c *gin.Context) {
+	//grab the id from URL (/api/leaves/1/status)
+	leaveID := c.Param("id")
+
+	//catch the incoming status update
+	var input struct {
+		Status string `json:"status"`
+	}
+
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	//validate the status string
+	if input.Status != "Approved" && input.Status != "Rejected" && input.Status != "Pending" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Status must be Approved, Rejected, or Pending"})
+		return
+	}
+
+	//find the exact leave request fron db
+	var leave models.Leave
+	if err := config.DB.First(&leave, leaveID).Error; err != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Leave request not found"})
+		return
+	}
+
+	//update the status and save to db
+	leave.Status = input.Status
+	config.DB.Save(&leave)
+
+	//send the updated record to frontend
+	c.JSON(http.StatusOK, gin.H{"data": leave})
+}

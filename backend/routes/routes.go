@@ -18,6 +18,9 @@ func SetupRoutes(router *gin.Engine) {
 		//leaves
 		api.POST("/leaves", controllers.CreateLeave)
 		api.GET("/leaves", controllers.GetLeaves)
+
+		//PUT id parameter in URL
+		api.PUT("/leaves/:id/status", controllers.UpdateLeaveStatus)
 	}
 
 }

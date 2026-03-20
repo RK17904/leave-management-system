@@ -28,8 +28,14 @@ func main() {
 	//initalize gin router
 	router := gin.Default()
 
-	//accept request from frontend
-	router.Use(cors.Default())
+	//custom CORS configuration
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"http://localhost:5173"}, //allow react frontend
+		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Accept", "Authorization"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+	}))
 
 	//connect custom routes
 	routes.SetupRoutes(router)

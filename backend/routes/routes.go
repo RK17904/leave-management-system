@@ -21,6 +21,11 @@ func SetupRoutes(router *gin.Engine) {
 
 		//PUT id parameter in URL
 		api.PUT("/leaves/:id/status", controllers.UpdateLeaveStatus)
+
+		//update users from admin dashboard
+		router.GET("/api/users", controllers.GetAllUsers)
+		router.PUT("/api/users/:id", controllers.UpdateUser)
+		router.DELETE("/api/users/:id", controllers.DeleteUser)
 	}
 
 }

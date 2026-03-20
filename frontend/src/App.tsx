@@ -1,22 +1,23 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+//import pages
+import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import ApplyLeave from './pages/ApplyLeave'; 
-import './App.css';
+import ApplyLeave from './pages/ApplyLeave';
+
+import './App.css'; //import css
 
 function App() {
   return (
     <Router>
-      <nav className="navbar">
-        <h2>Company Portal</h2>
-        <div>
-          <Link to="/">Dashboard</Link>
-          <Link to="/apply">Apply for Leave</Link> 
-        </div>
-      </nav>
-
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/apply" element={<ApplyLeave />} />
+        {/*default loading page */}
+        <Route path="/" element={<Login />} />
+        
+        {/*after loging pages*/}
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/apply-leave" element={<ApplyLeave />} />
       </Routes>
     </Router>
   );

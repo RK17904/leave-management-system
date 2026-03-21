@@ -270,9 +270,9 @@ const AdminDashboard = () => {
             <div className="modern-card">
               <h3>Register New User</h3>
               <form onSubmit={handleRegisterUser} className="register-form">
-                <div className="form-group"><label>Full Name</label><input type="text" required value={newUserName} onChange={e => setNewUserName(e.target.value)} placeholder="e.g. John Doe" /></div>
-                <div className="form-group"><label>Work Email</label><input type="email" required value={newUserEmail} onChange={e => setNewUserEmail(e.target.value)} placeholder="john@company.com" /></div>
-                <div className="form-group"><label>Temporary Password</label><input type="password" required value={newUserPassword} onChange={e => setNewUserPassword(e.target.value)} placeholder="Enter a secure password" /></div>
+                <div className="form-group"><label>Full Name</label><input type="text" required value={newUserName} onChange={e => setNewUserName(e.target.value)} placeholder="e.g. Saman Bandara" /></div>
+                <div className="form-group"><label>Work Email</label><input type="email" required value={newUserEmail} onChange={e => setNewUserEmail(e.target.value)} placeholder="saman@company.com" /></div>
+                <div className="form-group"><label>Password</label><input type="password" required value={newUserPassword} onChange={e => setNewUserPassword(e.target.value)} placeholder="Enter a secure password" /></div>
                 <div className="form-group">
                   <label>Account Role</label>
                   <select value={newUserRole} onChange={e => setNewUserRole(e.target.value)}>
